@@ -503,30 +503,6 @@ function entrar() {
                             margin-top:5px;
                         ">
                             ${carta[0]}
-                            </h2>
-    ABRIR CARTA 💗
-</a>
-
-<br>
-
-<button onclick="cerrarCarta()" style="
-    width:auto;
-    margin-top:25px;
-    padding:10px 20px;
-    background:#7b245f;
-    box-shadow:none;
-    font-size:14px;
-">
-    VOLVER A LOS SOBRES
-</button>
-
-        </div>
-    `;
-}
-
-function cerrarCarta() {
-    document.getElementById("cartaAbierta").style.display = "none";
-                             }
                         </div>
                     </div>
                 `).join("")}
@@ -574,8 +550,50 @@ function abrirCarta(indice) {
 
             <h2 style="color:#7b245f;">
                 Carta de ${carta[0]} ♡
-            </h
-</script>
+            </h2>
 
+            <p style="
+                font-size:17px;
+                line-height:1.5;
+            ">
+                Hay unas palabras especialmente para ti.
+            </p>
+
+            <a href="${carta[1]}"
+                target="_blank"
+                style="
+                    display:inline-block;
+                    margin-top:15px;
+                    padding:14px 24px;
+                    background:#ff4fa3;
+                    color:white;
+                    text-decoration:none;
+                    border-radius:30px;
+                    font-weight:bold;
+                ">
+                ABRIR CARTA 💗
+            </a>
+
+            <br>
+
+            <button onclick="cerrarCarta()" style="
+                width:auto;
+                margin-top:25px;
+                padding:10px 20px;
+                background:#7b245f;
+                box-shadow:none;
+                font-size:14px;
+            ">
+                VOLVER A LOS SOBRES
+            </button>
+
+        </div>
+    `;
+}
+
+function cerrarCarta() {
+    document.getElementById("cartaAbierta").style.display = "none";
+}           
+</script>
 </body>
 </html>
