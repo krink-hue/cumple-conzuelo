@@ -1,16 +1,287 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Conzuelo ♡</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso especial ♡</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, #ff8fc7 0 4%, transparent 5%),
+        radial-gradient(circle at 80% 15%, #ffd35c 0 3%, transparent 4%),
+        linear-gradient(135deg, #ff3f91, #d90072, #ff6b9f);
+    color: #5b1640;
+}
+
+.decoracion {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.elemento {
+    position: absolute;
+    font-size: 30px;
+    animation: flotar 4s ease-in-out infinite;
+}
+
+.e1 { top: 7%; left: 8%; }
+.e2 { top: 12%; right: 10%; animation-delay: .7s; }
+.e3 { top: 28%; left: 5%; animation-delay: 1.2s; }
+.e4 { top: 24%; right: 5%; animation-delay: 1.8s; }
+.e5 { bottom: 15%; left: 8%; animation-delay: .5s; }
+.e6 { bottom: 10%; right: 9%; animation-delay: 1.4s; }
+.e7 { bottom: 25%; left: 18%; animation-delay: 2s; }
+.e8 { top: 42%; right: 15%; animation-delay: 2.5s; }
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-10px) rotate(4deg); }
+}
+
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 390px;
+    padding: 35px 25px;
+    text-align: center;
+    background: #fff5df;
+    border: 5px solid #7b164d;
+    border-radius: 28px;
+    box-shadow:
+        0 15px 35px rgba(70, 0, 40, .35),
+        inset 0 0 0 3px #f2b15d;
+    position: relative;
+}
+
+.tarjeta::before,
+.tarjeta::after {
+    content: "✦";
+    position: absolute;
+    color: #d73b79;
+    font-size: 28px;
+}
+
+.tarjeta::before {
+    top: 10px;
+    left: 15px;
+}
+
+.tarjeta::after {
+    bottom: 10px;
+    right: 15px;
+}
+
+.osito {
+    font-size: 58px;
+    margin-bottom: 5px;
+    animation: osito 2.5s ease-in-out infinite;
+}
+
+@keyframes osito {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg) scale(1.04); }
+}
+
+h1 {
+    margin: 5px 0 10px;
+    font-size: 27px;
+    color: #a51b58;
+    letter-spacing: 1px;
+}
+
+.subtitulo {
+    font-size: 17px;
+    margin-bottom: 25px;
+    color: #70405a;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin: 12px 5px 6px;
+    font-weight: bold;
+    color: #7b164d;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e28aaf;
+    border-radius: 14px;
+    background: #fffaf1;
+    color: #5b1640;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #c21d69;
+    box-shadow: 0 0 0 3px rgba(194,29,105,.15);
+}
+
+button {
+    margin-top: 24px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 18px;
+    background: #c71968;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #7b164d;
+    transition: .2s;
+}
+
+button:active {
+    transform: translateY(5px);
+    box-shadow: 0 1px 0 #7b164d;
+}
+
+#error {
+    min-height: 28px;
+    margin-top: 17px;
+    color: #b51c55;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.firma {
+    margin-top: 22px;
+    font-size: 13px;
+    color: #9b6680;
+}
+</style>
 </head>
 
 <body>
 
-    <h1>✨ ACCESO ESPECIAL ✨</h1>
-    <p>Una sorpresa tan solo para ti.</p>
+<div class="decoracion">
+    <div class="elemento e1">🎈</div>
+    <div class="elemento e2">⭐</div>
+    <div class="elemento e3">🎁</div>
+    <div class="elemento e4">🎈</div>
+    <div class="elemento e5">✨</div>
+    <div class="elemento e6">🎂</div>
+    <div class="elemento e7">🎁</div>
+    <div class="elemento e8">⭐</div>
+</div>
+
+<div class="contenedor">
+
+    <div class="tarjeta">
+
+        <div class="osito">🧸</div>
+
+        <h1>✨ ACCESO ESPECIAL ✨</h1>
+
+        <div class="subtitulo">
+            Una sorpresa tan solo para ti.
+        </div>
+
+        <label for="nombre">Nombre completo</label>
+        <input
+            id="nombre"
+            type="text"
+            placeholder="Escribe tu nombre"
+            autocomplete="off"
+        >
+
+        <label for="fecha">Fecha especial</label>
+        <input
+            id="fecha"
+            type="text"
+            placeholder="17 09 2002"
+            autocomplete="off"
+        >
+
+        <button onclick="entrar()">ENTRAR ♡</button>
+
+        <div id="error"></div>
+
+        <div class="firma">
+            Una pequeña sorpresa hecha especialmente para ti ♡
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+let intentos = 0;
+
+function entrar() {
+
+    const nombre = document.getElementById("nombre").value.trim().toLowerCase();
+    const fecha = document.getElementById("fecha").value.trim();
+
+    const nombreCorrecto =
+        nombre.includes("conzuelo") &&
+        nombre.includes("ardiles") &&
+        nombre.includes("tapia");
+
+    const fechaCorrecta =
+        fecha.replace(/\s/g, "") === "17092002";
+
+    if (nombreCorrecto && fechaCorrecta) {
+
+        document.body.innerHTML = `
+            <div style="
+                min-height:100vh;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                text-align:center;
+                padding:30px;
+                background:#18051a;
+                color:white;
+                font-family:Georgia,serif;
+            ">
+                <div>
+                    <div style="font-size:60px;">✨</div>
+                    <h1>Espera…</h1>
+                    <p style="font-size:18px;">
+                        Estoy preparando algo especialmente para ti. ♡
+                    </p>
+                </div>
+            </div>
+        `;
+
+    } else {
+
+        intentos++;
+
+        const mensajes = [
+            "Mmm… creo que algo no está bien, princesa. 🧸",
+            "Casi… pero esta sorpresa sabe quién eres. 👀",
+            "¿Intentando entrar a escondidas? JAJA. 💗",
+            "Princesa, concéntrate un poquito más. ✨",
+            "Sé que puedes hacerlo. ♡"
+        ];
+
+        document.getElementById("error").textContent =
+            mensajes[Math.min(intentos - 1, mensajes.length - 1)];
+    }
+}
+</script>
 
 </body>
 </html>
