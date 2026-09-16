@@ -255,8 +255,32 @@ function entrar() {
                 color:white;
                 font-family:Georgia,serif;
             ">
-                <div>
-                    <div style="
+            <style>
+    .flowers-container > div[style*="position:absolute"] {
+        animation: flowerDance 3.5s ease-in-out infinite;
+        transform-origin:center bottom;
+    }
+
+    .flowers-container > div:nth-child(2n) {
+        animation-duration:4.5s;
+    }
+
+    .flowers-container > div:nth-child(3n) {
+        animation-duration:5.5s;
+    }
+
+    @keyframes flowerDance {
+        0%,100% {
+            transform:rotate(-6deg) scale(1);
+        }
+
+        50% {
+            transform:rotate(6deg) scale(1.15);
+        }
+    }
+</style>
+
+<div class="flowers-container" style="
     position:relative;
     width:100%;
     max-width:600px;
