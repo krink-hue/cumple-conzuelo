@@ -516,7 +516,16 @@ function entrar() {
 
     window.listaCartas = cartas;
 }
+function juntarCartas() {
+    const sobres = document.querySelectorAll(".sobre");
 
+    sobres.forEach((sobre, i) => {
+        setTimeout(() => {
+            sobre.style.transform = "translate(0, 0) scale(1.35)";
+            sobre.style.opacity = "0";
+        }, i * 100);
+    });
+    }
 function abrirCarta(indice) {
 
     const carta = window.listaCartas[indice];
