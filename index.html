@@ -209,7 +209,7 @@ button:active {
         <input
             id="fecha"
             type="text"
-            placeholder="17 09 2002"
+            placeholder="Escribe la fecha..."
             autocomplete="off"
         >
 
@@ -234,9 +234,9 @@ function entrar() {
     const fecha = document.getElementById("fecha").value.trim();
 
     const nombreCorrecto =
-        nombre.includes("conzuelo") &&
-        nombre.includes("ardiles") &&
-        nombre.includes("tapia");
+        nombre.includes("Conzuelo") &&
+        nombre.includes("Ardiles") &&
+        nombre.includes("Tapia");
 
     const fechaCorrecta =
         fecha.replace(/\s/g, "") === "17092002";
@@ -269,12 +269,11 @@ function entrar() {
 
         intentos++;
 
-        const mensajes = [
-            "Mmm… creo que algo no está bien, princesa. 🧸",
-            "Casi… pero esta sorpresa sabe quién eres. 👀",
-            "¿Intentando entrar a escondidas? JAJA. 💗",
-            "Princesa, concéntrate un poquito más. ✨",
-            "Sé que puedes hacerlo. ♡"
+            const mensajes = [
+    "Pero si es el día que nació la mujer más increíble del mundo. 🥹💕",
+    "Una fecha importante… ¿podría ser hoy hace 24 años? 👀",
+    "Tu cumpleaños pues, princesaaa. 🥺💗"
+];
         ];
 
         document.getElementById("error").textContent =
