@@ -481,9 +481,13 @@ function entrar() {
             ">
 
                 ${cartas.map((carta, i) => `
-                    <div onclick="abrirCarta(${i})"
-                        style="cursor:pointer;font-size:60px;">
-                        💌
+            <div onclick="abrirCarta(${i})"
+    class="sobre"
+    style="
+        cursor:pointer;
+        font-size:60px;
+        transition:transform 1s ease, opacity 1s ease;
+    ">
                         <div style="
                             font-size:13px;
                             font-weight:bold;
