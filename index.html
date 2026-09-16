@@ -438,46 +438,167 @@ function entrar() {
         </div>
     `;
     }
+    
+
+            <p style="
+                color:#5a2850;
+                font-size:17px;
+                line-height:1.5;
+            ">
+                Esta carta tiene un pedacito de cariño especialmente para ti.
+            </p>
+
+            <a href="${carta[1]}" target="_blank" style="
+                difunction cartas() {
     function cartas() {
+    const cartas = [
+        ["Isidora", "https://drive.google.com/file/d/11R2xlcsX9jA1apgs3Bu7h96vR-kx-PVl/view?usp=drivesdk"],
+        ["Anónimo", "https://docs.google.com/document/d/1iuvdD2DDOBYjirCaKALjBiq-3HZqCcPQfzWLXAouXeY/edit?usp=drivesdk"],
+        ["Nono", "https://docs.google.com/document/d/18PNZiHLLZCnydIE5e-btIT6zJtyjQNVNGKloDFJgLWE/edit?usp=drivesdk"],
+        ["Vai", "https://drive.google.com/file/d/1bYNehssOoZymNLy_GCqOmM292XPcYGz6/view?usp=drivesdk"],
+        ["Fran", "https://drive.google.com/file/d/1EMl8DSdia9WPXOheU1Uwe5MTS4A26rD2/view?usp=drivesdk"],
+        ["Dami", "https://drive.google.com/file/d/1_DMxnj1CPgO5uZyvLqpd6qfTk6zPMi6a/view?usp=drivesdk"],
+        ["Matías", "https://docs.google.com/document/d/1IJlDF8jLoudOCTO1VhfXvwTX2V5LmOtp/edit?usp=drivesdk"],
+        ["Minerito Minerazos", "https://docs.google.com/document/d/16GFhA8ftKhAhPmxsWeRsBLZd3gzSygDY/edit?usp=drivesdk"],
+        ["Lorena", "https://docs.google.com/document/d/1cRVSUOQSH3_Us-HK9HT8gJ_3lDQgM_d2/edit?usp=drivesdk"],
+        ["Vale", "https://drive.google.com/file/d/1xCI3_jUJVmvuqpFD_DVM04Mo-MH04wDa/view?usp=drivesdk"],
+        ["Yeta", "https://docs.google.com/document/d/1aQHh-ok6mhCAA1pOy2n-kxTM7m8QwHuB/edit?usp=drivesdk"],
+        ["Karinka", "https://docs.google.com/document/d/1rvaEksj6WhurX9xumQw-sPBlmK4XB7lo1r92j-t5iTU/edit?usp=drivesdk"]
+    ];
+
     document.body.innerHTML = `
         <div style="
             min-height:100vh;
-            background:#f7e6c5;
-            color:#3b1738;
+            background:linear-gradient(135deg,#ffb6d9,#ffd6a5,#c8b6ff);
             padding:30px 15px;
             font-family:Georgia,serif;
             text-align:center;
+            box-sizing:border-box;
         ">
 
-            <h1 style="font-size:28px;">
+            <h1 style="
+                color:#7b245f;
+                font-size:30px;
+                margin-bottom:10px;
+            ">
                 💌 PALABRAS PARA TI 💌
             </h1>
 
-            <p style="font-size:17px;">
-                Hay un montón de cariño esperándote...
+            <p style="
+                color:#5a2850;
+                font-size:17px;
+                margin-bottom:30px;
+            ">
+                Hay un montón de cariño esperándote... ♡
             </p>
 
-            <div style="
-                display:flex;
-                flex-wrap:wrap;
-                justify-content:center;
-                gap:18px;
-                margin-top:30px;
+            <div id="sobres" style="
+                display:grid;
+                grid-template-columns:repeat(3,1fr);
+                gap:20px;
+                max-width:500px;
+                margin:auto;
             ">
+                ${cartas.map((carta, i) => `
+                    <div onclick="abrirCarta(${i})" style="
+                        cursor:pointer;
+                        font-size:65px;
+                        transition:transform .3s;
+                        filter:drop-shadow(0 5px 4px rgba(0,0,0,.2));
+                    ">
+                        💌
+                        <div style="
+                            font-size:14px;
+                            color:#5a2850;
+                            margin-top:-8px;
+                            font-weight:bold;
+                        ">
+                            ${carta[0]}
+                        </div>
+                    </div>
+                `).join("")}
+            </div>
 
-                <div style="font-size:70px;cursor:pointer;">
-                    ✉️
-                </div>
+            <div id="cartaAbierta" style="
+                display:none;
+                position:fixed;
+                inset:0;
+                background:rgba(50,15,45,.75);
+                align-items:center;
+                justify-content:center;
+                padding:20px;
+                z-index:1000;
+            "></div>
+        </div>
+    `;
 
-                <div style="font-size:70px;cursor:pointer;">
-                    💌
-                </div>
+    window.listaCartas = cartas;
+}
 
-                <div style="font-size:70px;cursor:pointer;">
-                    ✉️
-                </div>
+function abrirCarta(indice) {
+    const carta = window.listaCartas[indice];
 
-                <div style="font-size:70px;cursor:pointer;">
+    const ventana = document.getElementById("cartaAbierta");
+    ventana.style.display = "flex";
+
+    ventana.innerHTML = `
+        <div style="
+            background:#fff4d6;
+            width:100%;
+            max-width:420px;
+            border-radius:20px;
+            padding:30px 20px;
+            box-sizing:border-box;
+            box-shadow:0 15px 50px rgba(0,0,0,.4);
+            animation:zoomCarta .5s ease;
+        ">
+
+            <div style="
+                font-size:65px;
+                margin-bottom:5px;
+            ">
+                💌
+            </div>
+
+            <h2 style="
+                color:#7b245f;
+                margin:5px 0 20px;
+            ">
+                Carta de ${carta[0]} ♡
+            </h2>splay:inline-block;
+                margin-top:15px;
+                padding:14px 24px;
+                background:#ff4fa3;
+                color:white;
+                text-decoration:none;
+                border-radius:30px;
+                font-weight:bold;
+                box-shadow:0 5px 0 #8b174f;
+            ">
+                ABRIR CARTA 💗
+            </a>
+
+            <br>
+
+            <button onclick="cerrarCarta()" style="
+                margin-top:25px;
+                padding:10px 20px;
+                border:none;
+                border-radius:20px;
+                background:#7b245f;
+                color:white;
+                font-size:15px;
+            ">
+                VOLVER A LOS SOBRES
+            </button>
+
+        </div>
+    `;
+}
+
+function cerrarCarta() {
+    document.getElementById("cartaAbierta").style.display = "none";
+}
                     💌
                 </div>
 
