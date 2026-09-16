@@ -212,8 +212,6 @@ button:active {
 
         <h1>✨ACCESO UNICO✨</h1>
 
-        </div>
-
         <label for="nombre">Nombre y tus dos apellidos</label>
         <input
             id="nombre"
@@ -364,7 +362,19 @@ function entrar() {
         ">
             JEJEJEJE esto es para ti. ♡
         </p>
-
+<button onclick="siguiente()" style="
+    margin-top:25px;
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:#ff4fa3;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 5px 0 #8b174f;
+">
+    DESCUBRIR ♡
+</button>
     </div>
 
 </div>
@@ -385,7 +395,7 @@ function entrar() {
     "Tu cumpleaño po Otelo. 🥺💗"
 ];
         document.getElementById("error").textContent =
-    mensajes[Math.min(intentos - 1, 2)];
+    mensajes[Math.min(intentos - 1, mensajes.length - 1)];
     }
 }
     function siguiente() {
