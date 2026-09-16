@@ -42,14 +42,14 @@ body {
 .e6 { bottom: 10%; right: 9%; animation-delay: 1.4s; }
 .e7 { bottom: 25%; left: 18%; animation-delay: 2s; }
 .e8 { top: 42%; right: 15%; animation-delay: 2.5s; }
-.e9 { top: 16%; left: 2%; font-size: 34px; animation-delay: 1s; }
-.e10 { top: 33%; right: 1%; font-size: 34px; animation-delay: 2.2s; }
-.e11 { top: 50%; left: 2%; font-size: 25px; animation-delay: 1.6s; }
-.e12 { bottom: 5%; right: 1%; font-size: 34px; animation-delay: .8s; }
-.e13 { top: 5%; right: 35%; font-size: 25px; animation-delay: 1.8s; }
-.e14 { bottom: 20%; right: 4%; font-size: 25px; animation-delay: 2.7s; }
-.e15 { bottom: 5%; left: 2%; font-size: 35px; animation-delay: 1.3s; }
-.e16 { top: 32%; left: 8%; font-size: 24px; animation-delay: 3s; }
+.e9 { top: 18%; left: 8%; font-size: 34px; animation-delay: 1s; }
+.e10 { top: 35%; right: 7%; font-size: 34px; animation-delay: 2.2s; }
+.e11 { top: 52%; left: 7%; font-size: 25px; animation-delay: 1.6s; }
+.e12 { bottom: 8%; right: 7%; font-size: 34px; animation-delay: .8s; }
+.e13 { top: 7%; right: 30%; font-size: 25px; animation-delay: 1.8s; }
+.e14 { bottom: 22%; right: 9%; font-size: 25px; animation-delay: 2.7s; }
+.e15 { bottom: 8%; left: 8%; font-size: 35px; animation-delay: 1.3s; }
+.e16 { top: 34%; left: 13%; font-size: 24px; animation-delay: 3s; }
 
 @keyframes flotar {
     0%, 100% { transform: translateY(0) rotate(-4deg); }
@@ -379,11 +379,13 @@ function entrar() {
         intentos++;
 
             const mensajes = [
+    "El año también importa. 👀✨",
+    "Son ocho números. 🔢💕",
+    "Es el día que llegó una princesa al mundo. 👑💗",
     "Por la patria que le dicen 🇨🇱. 🥹💕",
     "Cumpleaños de la doctora flora en bichos? 🐜👀",
     "Tu cumpleaño po Otelo. 🥺💗"
 ];
-
         document.getElementById("error").textContent =
     mensajes[Math.min(intentos - 1, 2)];
     }
