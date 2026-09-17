@@ -534,42 +534,48 @@ function entrar() {
 
     const sobres = document.querySelectorAll(".sobre");
 
+sobres.forEach((sobre, i) => {
+    const rect = sobre.getBoundingClientRect();
+
+    sobre.style.position = "fixed";
+    sobre.style.left = rect.left + "px";
+    sobre.style.top = rect.top + "px";
+    sobre.style.margin = "0";
+    sobre.style.zIndex = "500";
+    sobre.style.transition =
+        "transform 1.8s cubic-bezier(.2,.8,.2,1), opacity 1.2s ease";
+
+    const angulo = (i / sobres.length) * Math.PI * 2;
+    const radio = 150;
+
+    const x = Math.cos(angulo) * radio;
+    const y = Math.sin(angulo) * radio;
+
+    setTimeout(() => {
+        sobre.style.transform =
+            `translate(${x}px, ${y}px) scale(1.15) rotate(${i * 30}deg)`;
+    }, i * 100);
+});
+
+setTimeout(() => {
     sobres.forEach((sobre, i) => {
-        const rect = sobre.getBoundingClientRect();
-
-        sobre.style.position = "fixed";
-        sobre.style.left = rect.left + "px";
-        sobre.style.top = rect.top + "px";
-        sobre.style.margin = "0";
-        sobre.style.zIndex = "500";
-
         setTimeout(() => {
             sobre.style.transition =
-                "all 1.8s cubic-bezier(.22,1,.36,1)";
-            sobre.style.left = "50%";
-            sobre.style.top = "50%";
+                "transform 1.2s ease, opacity 1.2s ease";
+
             sobre.style.transform =
-                "translate(-50%,-50%) scale(1.8) rotate(" +
-                (i % 2 === 0 ? 8 : -8) + "deg)";
-        }, i * 180);
+                "translate(0,0) scale(.1) rotate(720deg)";
+
+            sobre.style.opacity = "0";
+        }, i * 80);
     });
+}, 2500);
 
-    setTimeout(() => {
-        sobres.forEach((sobre, i) => {
-            setTimeout(() => {
-                sobre.style.transition =
-                    "all 1.2s ease-in";
-                sobre.style.transform =
-                    "translate(-50%,-50%) scale(.2) rotate(720deg)";
-                sobre.style.opacity = "0";
-            }, i * 70);
-        });
-    }, 2700);
-
-    setTimeout(() => {
-        mostrarEscenaFinal();
-    }, 3900);
-}
+setTimeout(() => {
+    mostrarEscenaFinal();
+}, 4000);
+ }
+    
 
 function mostrarEscenaFinal() {
 
