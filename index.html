@@ -529,54 +529,21 @@ function entrar() {
 
     window.listaCartas = cartas;
 }
- function juntarCartas() {
+ 
+            function juntarCartas() {
     if (!window.finalPermitido) return;
 
-    const sobres = document.querySelectorAll(".sobre");
+    const pantalla = document.querySelector(".sobre").parentElement.parentElement;
 
-sobres.forEach((sobre, i) => {
-    const rect = sobre.getBoundingClientRect();
-
-    sobre.style.position = "fixed";
-    sobre.style.left = rect.left + "px";
-    sobre.style.top = rect.top + "px";
-    sobre.style.margin = "0";
-    sobre.style.zIndex = "500";
-    sobre.style.transition =
-        "transform 1.8s cubic-bezier(.2,.8,.2,1), opacity 1.2s ease";
-
-    const angulo = (i / sobres.length) * Math.PI * 2;
-    const radio = 150;
-
-    const x = Math.cos(angulo) * radio;
-    const y = Math.sin(angulo) * radio;
+    pantalla.style.transition = "opacity 1.8s ease, transform 1.8s ease";
+    pantalla.style.opacity = "0";
+    pantalla.style.transform = "scale(1.04)";
 
     setTimeout(() => {
-        sobre.style.transform =
-            `translate(${x}px, ${y}px) scale(1.15) rotate(${i * 30}deg)`;
-    }, i * 100);
-});
-
-setTimeout(() => {
-    sobres.forEach((sobre, i) => {
-        setTimeout(() => {
-            sobre.style.transition =
-                "transform 1.2s ease, opacity 1.2s ease";
-
-            sobre.style.transform =
-                "translate(0,0) scale(.1) rotate(720deg)";
-
-            sobre.style.opacity = "0";
-        }, i * 80);
-    });
-}, 2500);
-
-setTimeout(() => {
-    mostrarEscenaFinal();
-}, 4000);
- }
+        mostrarEscenaFinal();
+    }, 1800);
+            }
     
-
 function mostrarEscenaFinal() {
 
     document.body.innerHTML = `
