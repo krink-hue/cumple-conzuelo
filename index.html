@@ -457,7 +457,7 @@ function entrar() {
     document.body.innerHTML = `
         <div style="
             min-height:100vh;
-            background:linear-gradient(135deg,#ffb6d9,#ffd6a5,#c8b6ff);
+            background:linear-gradient(135deg,#24102f,#4a164f,#17152f);
             padding:30px 15px;
             font-family:Georgia,serif;
             text-align:center;
@@ -516,16 +516,6 @@ function entrar() {
 
     window.listaCartas = cartas;
 }
-function juntarCartas() {
-    const sobres = document.querySelectorAll(".sobre");
-
-    sobres.forEach((sobre, i) => {
-        setTimeout(() => {
-            sobre.style.transform = "translate(0, 0) scale(1.35)";
-            sobre.style.opacity = "0";
-        }, i * 100);
-    });
-    }
 function abrirCarta(indice) {
 
     const carta = window.listaCartas[indice];
