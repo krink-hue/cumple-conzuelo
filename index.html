@@ -411,7 +411,7 @@ function entrar() {
             font-family:Georgia,serif;
         ">
             <div style="max-width:500px;">
-                <div style="font-size:65px;">💐✨💐</div>
+                <div style="font-size:65px;">💐💐</div>
 
                 <h1 style="font-size:30px;">
                     No tan solo yo me acorde ♡
@@ -500,7 +500,7 @@ function entrar() {
                 `).join("")}
 
             </div>
-<button onclick="juntarCartas()" style="
+<button onclick="window.finalPermitido=true; juntarCartas()" style="
     margin-top:10px;
     padding:14px 25px;
     border:none;
@@ -531,6 +531,7 @@ function entrar() {
 }
 
 function juntarCartas() {
+    if (!window.finalPermitido) return;
     const sobres = document.querySelectorAll(".sobre");
 
     sobres.forEach((sobre, i) => {
@@ -734,7 +735,7 @@ function juntarCartas() {
                         0 0 55px #4db8ff,
                         0 0 90px #8c5cff;
                 ">
-                    Feliz 24,<br>
+                   Y dejamos lo mejor de nuestros corazones, Felices 24,<br>
                     princesa ♡
                 </div>
             </div>
