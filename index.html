@@ -529,9 +529,9 @@ function entrar() {
 
     window.listaCartas = cartas;
 }
-
-function juntarCartas() {
+ function juntarCartas() {
     if (!window.finalPermitido) return;
+
     const sobres = document.querySelectorAll(".sobre");
 
     sobres.forEach((sobre, i) => {
@@ -544,171 +544,156 @@ function juntarCartas() {
         sobre.style.zIndex = "500";
 
         setTimeout(() => {
+            sobre.style.transition =
+                "all 1.8s cubic-bezier(.22,1,.36,1)";
             sobre.style.left = "50%";
             sobre.style.top = "50%";
             sobre.style.transform =
-                "translate(-50%, -50%) scale(2.8)";
-        }, i * 100);
+                "translate(-50%,-50%) scale(1.8) rotate(" +
+                (i % 2 === 0 ? 8 : -8) + "deg)";
+        }, i * 180);
     });
 
     setTimeout(() => {
+        sobres.forEach((sobre, i) => {
+            setTimeout(() => {
+                sobre.style.transition =
+                    "all 1.2s ease-in";
+                sobre.style.transform =
+                    "translate(-50%,-50%) scale(.2) rotate(720deg)";
+                sobre.style.opacity = "0";
+            }, i * 70);
+        });
+    }, 2700);
 
-        document.body.innerHTML = `
+    setTimeout(() => {
+        mostrarEscenaFinal();
+    }, 3900);
+}
+
+function mostrarEscenaFinal() {
+
+    document.body.innerHTML = `
         <div id="escenaFinal" style="
             position:fixed;
             inset:0;
             overflow:hidden;
-            background:linear-gradient(
-                to bottom,
-                #ffffff 0%,
-                #dff7ff 25%,
-                #7ec8ed 55%,
-                #10235c 100%
-            );
+            background:
+                linear-gradient(
+                    to bottom,
+                    #fff 0%,
+                    #dff7ff 18%,
+                    #6fb9e8 48%,
+                    #101b4d 100%
+                );
             font-family:Georgia,serif;
-            transition:background 5s ease;
         ">
 
             <div style="
                 position:absolute;
                 inset:0;
                 background:
-                radial-gradient(circle at 50% 25%,
-                rgba(255,255,255,.9),
-                transparent 20%);
-                opacity:.8;
+                    radial-gradient(
+                        circle at 50% 35%,
+                        rgba(255,255,255,.9),
+                        transparent 25%
+                    );
             "></div>
-
-            <!-- LUNA Y ESTRELLAS -->
 
             <div style="
                 position:absolute;
-                top:8%;
-                right:12%;
-                font-size:55px;
-                filter:drop-shadow(0 0 15px white);
+                top:7%;
+                right:10%;
+                font-size:58px;
+                filter:drop-shadow(0 0 18px white);
             ">🌙</div>
 
             <div style="
                 position:absolute;
                 top:12%;
                 left:12%;
-                font-size:22px;
+                font-size:24px;
             ">✨</div>
 
             <div style="
                 position:absolute;
-                top:25%;
-                right:28%;
-                font-size:18px;
+                top:20%;
+                left:30%;
+                font-size:17px;
             ">⭐</div>
 
             <div style="
                 position:absolute;
-                top:18%;
-                left:35%;
-                font-size:15px;
+                top:16%;
+                right:28%;
+                font-size:20px;
             ">✨</div>
 
-            <!-- CARPA -->
-
             <div style="
                 position:absolute;
                 left:50%;
-                bottom:25%;
+                bottom:23%;
                 transform:translateX(-50%);
-                width:240px;
-                height:150px;
-                background:linear-gradient(
-                    90deg,
-                    #54135e,
-                    #e34b91,
-                    #54135e
-                );
-                clip-path:polygon(
-                    50% 0,
-                    100% 100%,
-                    0 100%
-                );
-                filter:drop-shadow(0 8px 15px rgba(0,0,0,.4));
-            "></div>
-
-            <div style="
-                position:absolute;
-                left:50%;
-                bottom:25%;
-                transform:translateX(-50%);
-                font-size:70px;
+                font-size:145px;
                 z-index:3;
+                filter:drop-shadow(0 12px 15px rgba(0,0,0,.35));
             ">🎪</div>
 
-            <!-- LUCES -->
-
             <div style="
                 position:absolute;
                 left:50%;
-                bottom:38%;
+                bottom:40%;
                 transform:translateX(-50%);
-                font-size:24px;
-                letter-spacing:8px;
-                text-shadow:
-                    0 0 8px #fff,
-                    0 0 20px #ffd84d;
+                font-size:28px;
+                letter-spacing:10px;
+                filter:drop-shadow(0 0 10px #fff);
                 z-index:5;
             ">✨💡✨</div>
-
-            <!-- PAISAJE -->
 
             <div style="
                 position:absolute;
                 bottom:0;
                 width:100%;
-                height:27%;
+                height:28%;
                 background:#102b32;
                 border-radius:50% 50% 0 0;
             "></div>
 
-            <!-- PERRITOS -->
-
             <div style="
                 position:absolute;
-                bottom:15%;
-                left:10%;
-                font-size:65px;
+                bottom:14%;
+                left:8%;
+                font-size:67px;
                 z-index:10;
-                animation:animalMove 2s ease-out forwards;
+                animation:animalEntrada 2s ease-out forwards;
             ">🐕‍🦺</div>
 
             <div style="
                 position:absolute;
-                bottom:14%;
-                left:28%;
+                bottom:13%;
+                left:25%;
                 font-size:62px;
                 z-index:10;
-                animation:animalMove 2.4s ease-out forwards;
+                animation:animalEntrada 2.4s ease-out forwards;
             ">🐕</div>
-
-            <!-- GATITOS -->
 
             <div style="
                 position:absolute;
-                bottom:15%;
-                right:28%;
-                font-size:58px;
+                bottom:14%;
+                right:25%;
+                font-size:60px;
                 z-index:10;
-                animation:animalMove 2.8s ease-out forwards;
+                animation:animalEntrada 2.8s ease-out forwards;
             ">🐈</div>
 
             <div style="
                 position:absolute;
-                bottom:14%;
-                right:8%;
-                font-size:62px;
+                bottom:13%;
+                right:7%;
+                font-size:64px;
                 z-index:10;
-                animation:animalMove 3.1s ease-out forwards;
+                animation:animalEntrada 3.2s ease-out forwards;
             ">🐈‍⬛</div>
-
-            <!-- FRASE -->
 
             <div style="
                 position:absolute;
@@ -717,78 +702,72 @@ function juntarCartas() {
                 align-items:center;
                 justify-content:center;
                 text-align:center;
-                padding:30px;
+                padding:25px;
                 z-index:20;
                 opacity:0;
-                animation:fraseAparece 3s ease forwards;
-                animation-delay:6s;
+                animation:fraseFinal 2.5s ease forwards;
+                animation-delay:4s;
             ">
                 <div style="
                     color:white;
-                    font-size:clamp(38px,10vw,65px);
+                    font-size:clamp(42px,12vw,76px);
                     font-weight:bold;
-                    line-height:1.1;
+                    line-height:1.05;
+                    letter-spacing:2px;
                     text-shadow:
                         0 0 5px white,
-                        0 0 15px #fff,
-                        0 0 30px #72d9ff,
-                        0 0 55px #4db8ff,
-                        0 0 90px #8c5cff;
+                        0 0 15px white,
+                        0 0 30px #7de8ff,
+                        0 0 50px #35bfff,
+                        0 0 80px #a96cff,
+                        0 0 120px #ff63c8;
+                    animation:brillo 2s ease-in-out infinite alternate;
                 ">
-                   Y dejamos lo mejor de nuestros corazones, Felices 24,<br>
-                    princesa ♡
+                    FELIZ 24<br>
+                    PRINCESA ♡
                 </div>
             </div>
-
         </div>
 
         <style>
-
-        @keyframes animalMove {
+        @keyframes animalEntrada {
             0% {
-                transform:translateX(-80px);
+                transform:translateY(80px) scale(.7);
                 opacity:0;
             }
-
-            60% {
-                opacity:1;
-            }
-
             100% {
-                transform:translateX(0);
+                transform:translateY(0) scale(1);
                 opacity:1;
             }
         }
 
-        @keyframes fraseAparece {
+        @keyframes fraseFinal {
             0% {
                 opacity:0;
-                transform:scale(.7);
+                transform:scale(.4);
             }
-
             60% {
                 opacity:1;
-                transform:scale(1.08);
+                transform:scale(1.12);
             }
-
             100% {
                 opacity:1;
                 transform:scale(1);
             }
         }
 
-        </style>
-        `;
+        @keyframes brillo {
+            from {
+                filter:brightness(1);
+            }
+            to {
+                filter:brightness(1.7);
+            }
+        }
+                </style>
+    `;
+}
 
-        setTimeout(() => {
-            document.getElementById("escenaFinal").style.background =
-                "linear-gradient(to bottom,#ffffff 0%,#bdeeff 18%,#386bb5 48%,#071331 100%)";
-        }, 100);
-
-    }, 3000);
-                }
-    
-    
 function abrirCarta(indice) {
 
     const carta = window.listaCartas[indice];
