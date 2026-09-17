@@ -500,7 +500,19 @@ function entrar() {
                 `).join("")}
 
             </div>
-
+<button onclick="juntarCartas()" style="
+    margin-top:10px;
+    padding:14px 25px;
+    border:none;
+    border-radius:30px;
+    background:#ff4fa3;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    box-shadow:0 5px 0 #8b174f;
+">
+    Ya leí todas ♡
+</button>
             <div id="cartaAbierta" style="
                 display:none;
                 position:fixed;
@@ -516,7 +528,25 @@ function entrar() {
     `;
 
     window.listaCartas = cartas;
-}
+}function juntarCartas() {
+    const sobres = document.querySelectorAll(".sobre");
+
+    sobres.forEach((sobre, i) => {
+        const rect = sobre.getBoundingClientRect();
+
+        sobre.style.position = "fixed";
+        sobre.style.left = rect.left + "px";
+        sobre.style.top = rect.top + "px";
+        sobre.style.margin = "0";
+        sobre.style.zIndex = "500";
+
+        setTimeout(() => {
+            sobre.style.left = "50%";
+            sobre.style.top = "50%";
+            sobre.style.transform = "translate(-50%, -50%) scale(1.4)";
+        }, i * 100);
+    });
+                }
 function abrirCarta(indice) {
 
     const carta = window.listaCartas[indice];
